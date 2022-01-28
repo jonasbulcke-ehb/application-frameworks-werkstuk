@@ -1,0 +1,11 @@
+<app-navigation (apiAvailable)="apiAvailable = $event"></app-navigation>
+<ng-container *ngIf="apiAvailable;else error">
+    <router-outlet></router-outlet>
+</ng-container>
+<ng-template #error>
+    <div class="container">
+        <h1>Welcome!</h1>
+        <p>Unfortunately something went wrong while fetching the necessary data for our beautiful website.</p>
+        <p>Please come back later <mat-icon>heart</mat-icon></p>
+    </div>
+</ng-template>

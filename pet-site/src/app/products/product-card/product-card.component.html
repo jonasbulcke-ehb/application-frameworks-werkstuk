@@ -1,0 +1,16 @@
+<mat-card class="product-card">
+    <mat-card-title [routerLink]="['/products', product.subcategory.category.id, 'details', product.id]"
+                    class="clickable">{{ product.name }}
+    </mat-card-title>
+    <mat-card-subtitle>{{ product.brand }}</mat-card-subtitle>
+    <mat-card-content>
+        <p>{{ product.shortDescription }}</p>
+        <p>{{ product.price | currency: 'EUR' }}</p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <a *ngIf="authService.isAdmin()" [routerLink]="['/products', product.subcategory.category.id, 'edit', product.id]" mat-button>Edit</a>
+        <button mat-raised-button class="cart-button" color="primary" (click)="addToCart()">
+            <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,6 @@
+<div class="container">
+    <h2>Add a new product</h2>
+    <app-product-form [subcategories]="subcategories$" [product]="product"
+                      (productSubmitted)="onSubmit($event)"
+    ></app-product-form>
+</div>

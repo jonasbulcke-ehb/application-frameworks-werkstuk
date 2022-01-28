@@ -1,0 +1,44 @@
+<ng-container *ngIf="product; else loading">
+    <div class="container">
+        <h2 class="product-name-header">{{ product.name }}</h2>
+        <small *ngIf="product.brand">{{ product.brand }}</small>
+        <div>
+            <a mat-button [routerLink]="['/products', product.subcategory.category.id]">
+                {{ product.subcategory.category.name }}
+            </a>
+            /
+            <a mat-button [routerLink]="['/products', product.subcategory.category.id]"
+               [queryParams]="{subcategory: product.subcategory.name}">
+                {{ product.subcategory.name }}
+            </a>
+            /
+            <a mat-button disabled>{{ product.name }}</a>
+            <ng-container *ngIf="authService.isAdmin()">
+                /
+                <a mat-button [routerLink]="['/products', product.subcategory.category.id, 'edit', product.id]">
+                    Edit
+                </a>
+            </ng-container>
+        </div>
+        <p>{{ product.shortDescription }}</p>
+        <p class="price">{{ product.price | currency: "EUR" }}</p>
+        <form #cartForm="ngForm" (ngSubmit)="addToCart()">
+            <mat-form-field class="amount-field">
+                <mat-label>Amount</mat-label>
+                <input matInput type="number" min="1" [(ngModel)]="productAmount" name="amount" #amount="ngModel"
+                       required>
+            </mat-form-field>
+            <button [disabled]="cartForm.invalid" mat-raised-button class="cart-button" color="primary">
+                <mat-icon>add_shopping_cart</mat-icon>
+                Add to cart
+            </button>
+            <small class="mat-error" *ngIf="amount.invalid">A number greater then or equal to 1 is required</small>
+        </form>
+        <h3>Description</h3>
+        <p>{{ product.longDescription }}</p>
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+</ng-template>

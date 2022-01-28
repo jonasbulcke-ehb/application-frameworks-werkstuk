@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="welcome">
+        <h1>Welcome{{ authService.isLoggedIn() ? " " + authService.getUsername() : "" }}!</h1>
+        <p>
+            Welcome to Pet-Site, the coolest pet shop in your neighborhood, which is also the safest neighborhood, as crime is fought by our Friendly Neighborhood Spider-Man!
+        </p>
+    </div>
+    <h2 class="catalog-header" style="margin-top:3rem; font-size: 28px">Complete catalog</h2>
+
+    <ng-container *ngIf="products$| async as products; else loading">
+        <app-products-grid-list [products]="products"></app-products-grid-list>
+    </ng-container>
+    <ng-template #loading>
+        <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+    </ng-template>
+</div>

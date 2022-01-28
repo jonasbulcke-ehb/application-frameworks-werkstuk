@@ -1,0 +1,7 @@
+<app-category-tab-nav-bar [category]="category" [subcategoryName]="subcategoryName"></app-category-tab-nav-bar>
+<div class="container">
+    <div *ngIf="authService.isAdmin()">
+        <a mat-raised-button color="primary" routerLink="create">Add new product</a>
+    </div>
+    <app-products-grid-list [products]="products$ | async | productFilter : subcategoryName"></app-products-grid-list>
+</div>

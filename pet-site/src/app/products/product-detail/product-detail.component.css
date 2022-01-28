@@ -1,0 +1,16 @@
+a.mat-button-disabled {
+    color: deeppink !important;
+}
+
+.amount-field {
+    width: 75px !important;
+    margin-right: 1em;
+}
+
+.product-name-header {
+    margin: 0;
+}
+
+.price {
+    font-weight: bold;
+}

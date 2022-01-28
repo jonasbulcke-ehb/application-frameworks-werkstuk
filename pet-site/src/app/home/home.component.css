@@ -1,0 +1,17 @@
+div.welcome {
+    text-align: center;
+}
+
+.welcome > h1 {
+    font-size: 34px;
+    padding: 2rem;
+}
+
+.welcome > p {
+    font-size: 16px;
+}
+
+.catalog-header {
+    margin-top: 3rem;
+    font-size: 28px;
+}

@@ -1,0 +1,36 @@
+<!-- source for password visibility toggle: https://fireflysemantics.medium.com/angular-material-password-field-with-visibilitytoggle-d5342f97afbe -->
+
+<form #registerForm="ngForm" class="form" (ngSubmit)="register()">
+    <h2 class="title">Register to Pet-Site</h2>
+
+    <mat-form-field class="input-field">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="registerInput.username" name="username" #username="ngModel" required />
+        <mat-error *ngIf="username.invalid">Username is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input-field">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="registerInput.email" name="email" #email="ngModel" required email />
+        <mat-error *ngIf="email.invalid">A valid email address is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input-field">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="passwordHidden ? 'password' : 'text'" [(ngModel)]="registerInput.password"
+               name="password" #password="ngModel"
+               required />
+        <mat-icon matSuffix (click)="passwordHidden = !passwordHidden">
+            {{ passwordHidden ? "visibility_off" : "visibility" }}
+        </mat-icon>
+        <mat-error *ngIf="password.invalid">Password is required</mat-error>
+    </mat-form-field>
+
+    <span class="mat-error" *ngIf="error">{{ error }}</span>
+
+    <div class="button-group">
+        <button mat-button color="primary" type="button" routerLink="/auth/login">Already have an account?</button>
+        <span class="spacer"></span>
+        <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+    </div>
+</form>

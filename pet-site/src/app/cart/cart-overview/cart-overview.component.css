@@ -1,0 +1,17 @@
+.amount-field {
+    width: 75px;
+}
+
+tr.mat-footer-row {
+    font-weight: bold;
+}
+
+.order-button {
+    margin:2rem 5rem;
+}
+
+.button-group {
+    display: flex;
+    justify-content: end;
+}
+

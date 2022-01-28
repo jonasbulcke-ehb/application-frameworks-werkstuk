@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>You are not logged in</h2>
+<div mat-dialog-content>
+    <p>For adding products to your cart, you should be logged in</p>
+    <p>The product <b>{{ data.product.name }}</b> will not be added to your cart yet</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button color="warn" mat-dialog-close="true">Cancel</button>
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" mat-dialog-close="true" (click)="onLoginClick()" cdkFocusInitial>
+        Login
+    </button>
+</div>

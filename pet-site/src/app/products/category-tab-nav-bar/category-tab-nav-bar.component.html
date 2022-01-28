@@ -1,0 +1,9 @@
+<nav mat-tab-nav-bar mat-align-tabs="center">
+    <a mat-tab-link routerLink="./" [active]="subcategoryName == null">Overview</a>
+    <a mat-tab-link
+       *ngFor="let subcategory of subcategories$ | async"
+       routerLink="./" [queryParams]="{subcategory : subcategory.name}"
+       [active]="subcategoryName == subcategory.name">
+        {{ subcategory.name }}
+    </a>
+</nav>

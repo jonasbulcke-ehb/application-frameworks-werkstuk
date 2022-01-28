@@ -1,0 +1,17 @@
+.button-group {
+    justify-content: end;
+    display: flex;
+}
+
+.next-button {
+    margin-left: 1rem;
+}
+
+.back-button {
+    margin-right: 1rem;
+}
+
+mat-form-field {
+    width: 100%;
+    margin: 0 1rem;
+}

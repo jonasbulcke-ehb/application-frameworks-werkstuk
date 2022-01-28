@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Product added to your cart!</h2>
+<div mat-dialog-content>
+    <p>{{ data.product.name }}</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" mat-dialog-close="true" routerLink="cart/overview">Order</button>
+    <span class="spacer"></span>
+    <button mat-button color="primary" mat-dialog-close="true">Continue shopping</button>
+</div>
+

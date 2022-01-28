@@ -1,0 +1,27 @@
+<form #loginForm="ngForm" class="form" (ngSubmit)="login()">
+    <h2 class="title">Login to Pet-Site</h2>
+
+    <mat-form-field class="input-field">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="loginInput.username" name="username" #username="ngModel" required>
+        <mat-error *ngIf="username.invalid">Username is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input-field">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="passwordHidden ? 'password' : 'text' " [(ngModel)]="loginInput.password" name="password" #password="ngModel" required>
+        <mat-icon matSuffix (click)="passwordHidden = !passwordHidden">
+            {{ passwordHidden ? 'visibility_off': 'visibility' }}
+        </mat-icon>
+        <mat-error *ngIf="password.invalid">Password is required</mat-error>
+    </mat-form-field>
+
+    <span class="mat-error" *ngIf="error">{{ error }}</span>
+
+    <div class="button-group">
+        <button mat-button color="primary" type="button" routerLink="/auth/register">Don't have an account yet?</button>
+        <span class="spacer"></span>
+        <button mat-button color="warn" type="button">Forgot password</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+    </div>
+</form>

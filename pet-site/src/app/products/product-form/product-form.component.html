@@ -1,0 +1,5 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <formly-form [model]="product" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    <button mat-raised-button type="submit" color="primary">Submit</button>
+    <button mat-button color="warn" [routerLink]="['/products', product.subcategory.category.id]">Cancel</button>
+</form>

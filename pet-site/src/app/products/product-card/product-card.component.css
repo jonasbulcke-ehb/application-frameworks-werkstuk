@@ -1,0 +1,24 @@
+mat-card {
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+mat-card-actions {
+    margin: auto 0 0;
+}
+
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    color: deeppink;
+}
+
+.cart-button:hover {
+    background-color: deeppink;
+}
